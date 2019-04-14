@@ -11,6 +11,18 @@ import UIKit
 class ToDoTableViewController: UITableViewController {
     
     var todos = [ToDo]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let savedToDos = ToDo.loadToDos() {
+            todos = savedToDos
+        } else {
+            todos = ToDo.loadSampleToDos()
+            //conditional logic to load from the disk
+            
+        }
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
