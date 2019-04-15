@@ -15,6 +15,9 @@ class ToDoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = editButtonItem
+        //Adds the edit button programmatically that places the entire tableView into editing mode, displaying delete buttons to the left of each cell. When tapped the button switches its text from edit to done.
+        
         if let savedToDos = ToDo.loadToDos() {
             todos = savedToDos
         } else {
@@ -36,6 +39,18 @@ class ToDoTableViewController: UITableViewController {
         cell.textLabel?.text = todo.title
         return cell
     }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+        //adds swipe to delete functionabilty to the tableViews cells
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            //When the cell is swiped a red delete button appears to the right. Verifies the delete button triggered the method call then delets the model from the array and the view.
+        }
+    }
+    
     
 }
 
