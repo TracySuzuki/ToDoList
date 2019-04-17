@@ -76,6 +76,7 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" image="Unchecked"/>
+                                                    <state key="selected" image="Checked"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -130,6 +131,32 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="PWg-2W-z2j" secondAttribute="trailing" id="o1P-GS-dox"/>
                                                 <constraint firstItem="PWg-2W-z2j" firstAttribute="top" secondItem="aws-uj-bfp" secondAttribute="bottom" constant="2" id="xLl-f9-yiq"/>
                                                 <constraint firstItem="PWg-2W-z2j" firstAttribute="leading" secondItem="aA0-1k-obU" secondAttribute="leadingMargin" id="yeI-Ur-L0V"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Notes" id="DAv-Hq-GH5">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="VOm-AY-MJm">
+                                        <rect key="frame" x="0.0" y="391.5" width="375" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VOm-AY-MJm" id="efI-lP-mMJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AGo-PB-XFc">
+                                                    <rect key="frame" x="16" y="11" width="343" height="178"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AGo-PB-XFc" secondAttribute="bottom" id="B9B-xX-wyN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="AGo-PB-XFc" secondAttribute="trailing" id="DYL-kx-ZyQ"/>
+                                                <constraint firstItem="AGo-PB-XFc" firstAttribute="leading" secondItem="efI-lP-mMJ" secondAttribute="leadingMargin" id="boq-YC-gon"/>
+                                                <constraint firstItem="AGo-PB-XFc" firstAttribute="top" secondItem="efI-lP-mMJ" secondAttribute="topMargin" id="gOw-bf-g0M"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -193,6 +220,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Checked" width="44" height="44"/>
         <image name="Unchecked" width="44" height="44"/>
     </resources>
 </document>
