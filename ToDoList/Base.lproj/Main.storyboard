@@ -47,7 +47,7 @@
         <!--New ToDo-->
         <scene sceneID="JYq-4X-LeE">
             <objects>
-                <tableViewController id="ys5-80-zDW" sceneMemberID="viewController">
+                <tableViewController id="ys5-80-zDW" customClass="ToDoViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="SXa-jh-fB0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,6 +67,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="ys5-80-zDW" eventType="editingChanged" id="2D1-qD-Vmb"/>
+                                                    </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1z-ba-Cqh">
                                                     <rect key="frame" x="16" y="0.0" width="46" height="44"/>
@@ -180,6 +183,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDateLabel" destination="CB0-5m-Gub" id="ju8-3l-47q"/>
+                        <outlet property="dueDatePickerView" destination="PWg-2W-z2j" id="EYX-mC-dfE"/>
+                        <outlet property="isCompleteButton" destination="T1z-ba-Cqh" id="cu4-9X-LcR"/>
+                        <outlet property="notesTextView" destination="AGo-PB-XFc" id="5ZR-lb-mHk"/>
+                        <outlet property="saveButton" destination="m6X-fd-kbS" id="Ul1-hh-EEZ"/>
+                        <outlet property="titleTextField" destination="OTc-IR-pjA" id="BqH-pM-iGJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLS-38-dOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Vkq-vX-ta4" userLabel="Exit" sceneMemberID="exit"/>
