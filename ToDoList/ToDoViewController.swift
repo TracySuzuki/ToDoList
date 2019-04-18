@@ -36,9 +36,19 @@ class ToDoViewController: UITableViewController {
         saveButton.isEnabled = !text.isEmpty
     }
     
+    @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
+        isCompleteButton.isSelected = !isCompleteButton.isSelected
+    }
+    
+    
+    
     
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
+    }
+    
+    @IBAction func returnPressed(_ sender: UITextField) {
+        titleTextField.resignFirstResponder()
     }
     
     

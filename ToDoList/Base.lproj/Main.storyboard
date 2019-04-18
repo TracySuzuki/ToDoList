@@ -63,11 +63,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Remind me to..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTc-IR-pjA">
-                                                    <rect key="frame" x="70" y="11" width="289" height="44"/>
+                                                    <rect key="frame" x="70" y="11" width="289" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="returnPressed:" destination="ys5-80-zDW" eventType="primaryActionTriggered" id="b7b-B8-jEd"/>
                                                         <action selector="textEditingChanged:" destination="ys5-80-zDW" eventType="editingChanged" id="2D1-qD-Vmb"/>
                                                     </connections>
                                                 </textField>
@@ -80,6 +81,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" image="Unchecked"/>
                                                     <state key="selected" image="Checked"/>
+                                                    <connections>
+                                                        <action selector="isCompleteButtonTapped:" destination="ys5-80-zDW" eventType="touchUpInside" id="rb1-XR-WyY"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
