@@ -10,6 +10,8 @@ import UIKit
 
 class ToDoViewController: UITableViewController {
     
+    var isEndDatePickerHidden = true //initial state of the picker is hidden
+    
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -26,8 +28,42 @@ class ToDoViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dueDatePickerView.date = Date().addingTimeInterval(24*60*60)
+        //sets the initial date pickers date 24 hours from now
+        
         updateDueDateLabel(date: dueDatePickerView.date)
         updateSaveButtonState()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let normalCellHeight = CGFloat(44)
+        let largeCellHeight = CGFloat(200)
+        
+        switch(indexPath) { //switch statement handles each path accordingly, each value is an array with 2 items, first is the cells section and second is the cells row.
+        case [1,0]: //Due Date Cell
+            return isEndDatePickerHidden ? normalCellHeight : largeCellHeight
+            
+        case [2,0]: //Notes Cell
+            return largeCellHeight
+            
+        default: return normalCellHeight
+            
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch(indexPath) {
+        case [1,0]:
+            isEndDatePickerHidden = !isEndDatePickerHidden
+            
+            dueDateLabel.textColor = isEndDatePickerHidden ? .black : tableView.tintColor
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            
+        default: break
+            
+        }
     }
     
     func updateDueDateLabel(date: Date) {
