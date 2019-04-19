@@ -69,14 +69,18 @@ class ToDoTableViewController: UITableViewController {
         ToDoViewController
         
         if let todo = sourceViewController.todo {
-        let newIndexPath = IndexPath(row: todos.count, section: 0)
-            
-        todos.append(todo)
-        tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                todos[selectedIndexPath.row] = todo
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+            let newIndexPath = IndexPath(row: todos.count, section: 0)
+            todos.append(todo)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
          //Clicking on the save button will create a new entry and a new cell is displayed
-        }
+            }
         
-    }
+        }
     
-}
+    }
 
+}
