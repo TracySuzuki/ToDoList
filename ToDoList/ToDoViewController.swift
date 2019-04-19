@@ -11,6 +11,7 @@ import UIKit
 class ToDoViewController: UITableViewController {
     
     var isEndDatePickerHidden = true //initial state of the picker is hidden
+    var todo: ToDo? //optional model property to deal with one model at a time
     
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -65,6 +66,20 @@ class ToDoViewController: UITableViewController {
             
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender) //passing information from one controller to another
+        guard segue.identifier == "saveUnwind" else {return}
+        
+        let title = titleTextField.text!
+        let isComplete = isCompleteButton.isSelected
+        let dueDate = dueDatePickerView.date
+        let notes = notesTextView.text
+        
+        todo = ToDo(title: title, isComplete: isComplete, dueDate: dueDate, notes: notes) //sets the property to a value
+        
+    }
+    
     
     func updateDueDateLabel(date: Date) {
         dueDateLabel.text = ToDo.dueDateFormatter.string(from: date)
