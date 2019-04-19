@@ -51,6 +51,18 @@ class ToDoTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetails" {
+            let todoViewController = segue.destination
+            as! ToDoViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedToDo = todos[indexPath.row]
+            todoViewController.todo = selectedToDo
+            //prepare method downcasts the destination to the view controller subclass. Then the index path of the selected row to access the model and set the model property in the destination
+        }
+    }
+    
+    
     @IBAction func unwindToToDoList(segue: UIStoryboardSegue) {
         guard segue.identifier == "saveUnwind" else {return}
         let sourceViewController = segue.source as!
