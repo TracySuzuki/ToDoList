@@ -25,9 +25,15 @@ class ToDoViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateDueDateLabel(date: dueDatePickerView.date)
         updateSaveButtonState()
     }
     
+    func updateDueDateLabel(date: Date) {
+        dueDateLabel.text = ToDo.dueDateFormatter.string(from: date)
+        //helper method to update dueDateLabel
+    }
     
     
     
@@ -38,6 +44,12 @@ class ToDoViewController: UITableViewController {
     
     @IBAction func isCompleteButtonTapped(_ sender: UIButton) {
         isCompleteButton.isSelected = !isCompleteButton.isSelected
+    }
+    
+    
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        updateDueDateLabel(date: dueDatePickerView.date)
+        //due date label will display a string of text that matches the date picker
     }
     
     
