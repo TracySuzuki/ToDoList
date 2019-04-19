@@ -28,9 +28,17 @@ class ToDoViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dueDatePickerView.date = Date().addingTimeInterval(24*60*60)
-        //sets the initial date pickers date 24 hours from now
+        if let todo = todo {
+            navigationItem.title = "To-Do"
+            titleTextField.text = todo.title
+            isCompleteButton.isSelected = todo.isComplete
+            dueDatePickerView.date = todo.dueDate
+            notesTextView.text = todo.notes
+            //updates the static view controller. It will now display a new title and all the controls match the data the cell represented.
+        } else {
+            dueDatePickerView.date = Date().addingTimeInterval(24*60*60)
+            //sets the initial date pickers date 24 hours from now
+        }
         
         updateDueDateLabel(date: dueDatePickerView.date)
         updateSaveButtonState()
