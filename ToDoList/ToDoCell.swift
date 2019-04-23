@@ -10,4 +10,11 @@ import UIKit
 
 class ToDoCell: UITableViewCell {
     let toDoCell = ToDoCell.self
+    
+    
+    @IBOutlet weak var isCompleteButton: UIButton!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    
 }

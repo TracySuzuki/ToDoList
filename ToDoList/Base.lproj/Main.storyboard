@@ -24,8 +24,38 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1iK-EL-QKv" id="PBe-8q-A9H">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pJ-nc-zj6">
+                                            <rect key="frame" x="24" y="4" width="36" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="36" id="ZiB-2u-ejj"/>
+                                                <constraint firstAttribute="height" constant="36" id="pYE-mx-x7Y"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <state key="normal" image="Unchecked"/>
+                                            <state key="selected" image="Checked"/>
+                                            <connections>
+                                                <action selector="isCompleteButtonTapped:" destination="ys5-80-zDW" eventType="touchUpInside" id="o5s-Me-8Li"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBo-VF-epi">
+                                            <rect key="frame" x="68" y="11.5" width="291" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="HBo-VF-epi" firstAttribute="leading" secondItem="4pJ-nc-zj6" secondAttribute="trailing" constant="8" id="FXk-aw-pcG"/>
+                                        <constraint firstItem="HBo-VF-epi" firstAttribute="trailing" secondItem="PBe-8q-A9H" secondAttribute="trailingMargin" id="OL5-FR-PE1"/>
+                                        <constraint firstItem="4pJ-nc-zj6" firstAttribute="centerY" secondItem="PBe-8q-A9H" secondAttribute="centerY" id="aEy-jS-Ldq"/>
+                                        <constraint firstItem="4pJ-nc-zj6" firstAttribute="leading" secondItem="PBe-8q-A9H" secondAttribute="leadingMargin" constant="8" id="d7O-5h-q8R"/>
+                                        <constraint firstItem="HBo-VF-epi" firstAttribute="centerY" secondItem="PBe-8q-A9H" secondAttribute="centerY" id="xND-M2-oPV"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="isCompleteButton" destination="4pJ-nc-zj6" id="XA9-xk-r3h"/>
+                                    <outlet property="titleLabel" destination="HBo-VF-epi" id="ean-98-7sS"/>
                                     <segue destination="ys5-80-zDW" kind="show" identifier="showDetails" id="wMS-7B-boK"/>
                                 </connections>
                             </tableViewCell>
@@ -45,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Co-aG-IpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="662"/>
+            <point key="canvasLocation" x="424.80000000000001" y="661.61919040479768"/>
         </scene>
         <!--New ToDo-->
         <scene sceneID="JYq-4X-LeE">
