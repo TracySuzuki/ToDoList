@@ -35,7 +35,7 @@
                                             <state key="normal" image="Unchecked"/>
                                             <state key="selected" image="Checked"/>
                                             <connections>
-                                                <action selector="isCompleteButtonTapped:" destination="ys5-80-zDW" eventType="touchUpInside" id="o5s-Me-8Li"/>
+                                                <action selector="completeButtonTapped" destination="1iK-EL-QKv" eventType="touchUpInside" id="zkC-oy-lYu"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBo-VF-epi">
@@ -54,8 +54,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="isCompleteButton" destination="4pJ-nc-zj6" id="XA9-xk-r3h"/>
-                                    <outlet property="titleLabel" destination="HBo-VF-epi" id="ean-98-7sS"/>
+                                    <outlet property="isCompleteButton" destination="4pJ-nc-zj6" id="SNs-u0-mlc"/>
+                                    <outlet property="titleLabel" destination="HBo-VF-epi" id="Bkg-Yp-Oqm"/>
                                     <segue destination="ys5-80-zDW" kind="show" identifier="showDetails" id="wMS-7B-boK"/>
                                 </connections>
                             </tableViewCell>

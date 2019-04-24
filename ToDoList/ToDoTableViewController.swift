@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ToDoTableViewController: UITableViewController {
-    
+class ToDoTableViewController: UITableViewController, ToDoCellDelegate  {
+    //updates the view controllers class definition so it can be set as the delegate
     var todos = [ToDo]()
     
     override func viewDidLoad() {
@@ -35,9 +35,13 @@ class ToDoTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCellIdentifier") as? ToDoCell else {
             fatalError("Could not dequeue a cell")
         }
+        cell.delegate = self
+        //whenever a cell is dequed the tableview controller should set itself as the cell's delegate.
+        
         let todo = todos[indexPath.row]
         cell.titleLabel?.text = todo.title
         cell.isCompleteButton.isSelected = todo.isComplete
+        //added check buttons to the initial views cells
         return cell
     }
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -84,4 +88,14 @@ class ToDoTableViewController: UITableViewController {
     
     }
 
+    func checkmarkTapped(sender: ToDoCell) {
+        if let indexPath = tableView.indexPath(for: sender) {
+            var todo = todos[indexPath.row]
+            todo.isComplete = !todo.isComplete
+            todos[indexPath.row] = todo
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            
+        }
+        
+    }
 }
