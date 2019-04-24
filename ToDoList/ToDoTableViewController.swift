@@ -52,7 +52,9 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate  {
         if editingStyle == .delete {
             todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            //When the cell is swiped a red delete button appears to the right. Verifies the delete button triggered the method call then delets the model from the array and the view.
+            ToDo.saveToDos(todos)
+            
+            //When the cell is swiped a red delete button appears to the right. Verifies the delete button triggered the method call then delets the model from the array and the view. Call the save() method after the item is removed from the array
         }
     }
     
@@ -86,6 +88,8 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate  {
         
         }
     
+        ToDo.saveToDos(todos)
+        //updates the collection when the user taps the save button. Therefore call the save method whenever you perform the segue with the saveUnwind() identifier
     }
 
     func checkmarkTapped(sender: ToDoCell) {
@@ -98,4 +102,15 @@ class ToDoTableViewController: UITableViewController, ToDoCellDelegate  {
         }
         
     }
+    
+    func completeButtonTapped(sender: ToDoCell) {
+        if let indexPath = tableView.indexPath(for: sender) {
+            var todo = todos[indexPath.row]
+            todo.isComplete = !todo.isComplete
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            ToDo.saveToDos(todos)
+            
+        }
+    }
+    
 }
